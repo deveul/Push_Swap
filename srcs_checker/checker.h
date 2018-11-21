@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 14:26:49 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/20 19:02:11 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/21 11:58:24 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,16 @@ typedef struct	s_check
 }				t_check;
 
 int		ft_check_format(int argc, char **argv, t_check *check);
+void	ft_swap_a(t_check *c);
+void	ft_push_a(t_check *c);
+void	ft_rotate_a(t_check *c);
+void	ft_reverse_rotate_a(t_check *c);
+void	ft_swap_b(t_check *c);
+void	ft_push_b(t_check *c);
+void	ft_rotate_b(t_check *c);
+void	ft_reverse_rotate_b(t_check *c);
+void	ft_swap_both(t_check *c);
+void	ft_rotate_both(t_check *c);
+void	ft_reverse_rotate_both(t_check *c);
 
 #endif

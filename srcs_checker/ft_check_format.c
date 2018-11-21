@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 15:33:46 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/20 19:02:15 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/21 10:18:24 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static int		*ft_fill_nbs(int argc, char **argv)
 	int		j;
 
 	i = 1;
-	j = 0;
+	j = argc - 2;
 	if (!(nbs = ft_memalloc(sizeof(int) * argc)))
 		return (NULL);
 	 i = 1;
@@ -49,7 +49,7 @@ static int		*ft_fill_nbs(int argc, char **argv)
 	{
 		nbs[j] = ft_atoi(argv[i]);
 		i++;
-		j++;
+		j--;
 	}
 	return (nbs);
 }
