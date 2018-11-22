@@ -6,13 +6,13 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 14:23:06 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/22 13:04:25 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/22 17:08:10 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_init_swap(t_check *c)
+static void	ft_init_stack(t_check *c)
 {
 	int		i;
 	int		j;
@@ -27,9 +27,51 @@ static void	ft_init_swap(t_check *c)
 	c->b = c->nb_b - 1;
 }
 
+static void	ft_init_swap(t_check *c, t_swap *s)
+{
+	int		i;
+	int		j;
+	int		tmp;
+
+	i = 0;
+//	ft_printf("c->nb_a:%d\n", c->nb_a);
+	s->sort = ft_memalloc(sizeof(int) * c->nb_a);
+	while (i < c->nb_a)
+	{
+//		ft_printf("stack_a[i] : %d\n", c->stack_a[i]);
+		s->sort[i] = c->stack_a[i];
+		i++;
+	}
+	i = -1;
+//	while (++i < c->nb_a)
+//		ft_printf("%3d", s->sort[i]);
+//	ft_printf("\n");
+	i = c->nb_a;
+	while (i >= 0)
+	{
+		j = c->nb_a;
+		while (j >= 0)
+		{
+			if (s->sort[i] < s->sort[j])
+			{
+				tmp = s->sort[i];
+				s->sort[i] = s->sort[j];
+				s->sort[j] = tmp;
+			}
+			j--;
+		}
+		i--;
+	}
+	i = -1;
+//	while (++i < c->nb_a)
+//		ft_printf("%3d", s->sort[i]);
+//	ft_putendl("");
+}
+
 int			main(int argc, char **argv)
 {
 	t_check	c;
+	t_swap	s;
 
 	c.nb = -1;
 	if (ft_check_format(argc, argv, &c) == -1)
@@ -39,17 +81,9 @@ int			main(int argc, char **argv)
 	}
 	if (!(c.stack_b = malloc(sizeof(int) * c.nb)))
 		return (-1);
-	ft_init_swap(&c);
-	ft_printf("sa\n");
-	ft_printf("pb\n");
-	ft_printf("pb\n");
-	ft_printf("pb\n");
-//	ft_printf("rr\n");
-//	ft_printf("rrr\n");
-	ft_printf("sa\n");
-	ft_printf("pa\n");
-	ft_printf("pa\n");
-	ft_printf("pa\n");
+	ft_init_stack(&c);
+	ft_init_swap(&c, &s);
+	ft_sort_stack(&c, &s);
 	free(c.stack_a);
 	free(c.stack_b);
 	return (0);

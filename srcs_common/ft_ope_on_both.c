@@ -6,11 +6,11 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 11:54:13 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/21 11:59:27 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/22 14:52:31 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "../srcs_checker/checker.h"
 
 void	ft_swap_both(t_check *c)
 {
