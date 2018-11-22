@@ -6,13 +6,13 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 14:23:06 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/22 13:01:30 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/22 13:03:45 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-static void	ft_print_pile(t_check *c)
+static void	ft_print_stack(t_check *c)
 {
 	int		i;
 	int		j;
@@ -20,15 +20,15 @@ static void	ft_print_pile(t_check *c)
 	i = 1;
 	j = c->nb - 1;
 	ft_printf("nb_a : %d		nb_b : %d\n", c->nb_a, c->nb_b);
-	ft_printf("Pile a:		Pile b:\n");
+	ft_printf("stack a:		stack b:\n");
 	while (i < (c->nb + 1))
 	{
 		if (j < c->nb_a)
-			ft_printf("%8d", c->pile_a[j]);
+			ft_printf("%8d", c->stack_a[j]);
 		else
 			ft_printf("%8.d", 0);
 		if (j < c->nb_b)
-			ft_printf("%8d", c->pile_b[j]);
+			ft_printf("%8d", c->stack_b[j]);
 		else
 			ft_printf("%8.d", 0);
 		ft_printf("\n");
@@ -45,7 +45,7 @@ static void	ft_init_checker(t_check *c)
 	i = 1;
 	j = 0;
 	while (i++ < (c->nb + 1))
-		c->pile_b[j++] = 0;
+		c->stack_b[j++] = 0;
 	c->nb_a = c->nb;
 	c->a = c->nb_a - 1;
 	c->nb_b = 0;
@@ -61,7 +61,7 @@ static int	ft_is_it_sort(t_check *c)
 		return (-1);
 	while (i < c->nb_a)
 	{
-		if (c->pile_a[i] >= c->pile_a[i - 1])
+		if (c->stack_a[i] >= c->stack_a[i - 1])
 		{
 			ft_printf("KO\n");
 			return (-1);
@@ -109,18 +109,18 @@ int			main(int argc, char **argv)
 		ft_printf("Error\n");
 		return (-1);
 	}
-	if (!(c.pile_b = malloc(sizeof(int) * c.nb)))
+	if (!(c.stack_b = malloc(sizeof(int) * c.nb)))
 		return (-1);
 	ft_init_checker(&c);
-	ft_print_pile(&c);
+	ft_print_stack(&c);
 	while (get_next_line(0, &line) > 0)
 	{
 		ft_instruction(&c, line);
-		ft_print_pile(&c);
+		ft_print_stack(&c);
 		ft_strdel(&line);
 	}
 	ft_is_it_sort(&c);
-	free(c.pile_a);
-	free(c.pile_b);
+	free(c.stack_a);
+	free(c.stack_b);
 	return (0);
 }

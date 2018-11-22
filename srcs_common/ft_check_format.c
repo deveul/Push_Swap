@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 15:33:46 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/22 10:49:44 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/22 13:04:05 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,9 @@ int				ft_check_format(int argc, char **argv, t_check *c)
 	c->nb = argc - 1;
 	if (ft_check_if_only_nb(c->nb + 1, argv) == -1)
 		return (-1);
-	else if (!(c->pile_a = ft_fill_nbs(c->nb + 1, argv)))
+	else if (!(c->stack_a = ft_fill_nbs(c->nb + 1, argv)))
 		return (-1);
-	else if (ft_check_unicity(c->nb, c->pile_a) == -1)
+	else if (ft_check_unicity(c->nb, c->stack_a) == -1)
 		return (-1);
 	return (0);
 }

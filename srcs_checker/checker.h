@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 14:26:49 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/21 15:59:06 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/22 13:02:29 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 typedef struct	s_check
 {
-	int			*pile_a;
-	int			*pile_b;
+	int			*stack_a;
+	int			*stack_b;
 	int			nb;
 	int			nb_a;
 	int			nb_b;

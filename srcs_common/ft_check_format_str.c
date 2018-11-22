@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 15:12:14 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/21 16:52:39 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/22 13:04:12 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,17 +62,17 @@ int		ft_check_format_str(char *str, t_check *c)
 	while (tab[i])
 		i++;
 	c->nb = i;
-	if (!(c->pile_a = ft_memalloc(sizeof(int) * c->nb)))
+	if (!(c->stack_a = ft_memalloc(sizeof(int) * c->nb)))
 		return (-1);
 	i = 0;
 	j = c->nb - 1;
 	while (tab[i])
 	{
-		c->pile_a[j] = ft_atoi(tab[i]);
+		c->stack_a[j] = ft_atoi(tab[i]);
 		i++;
 		j--;
 	}
-	if (ft_check_unicity(c->nb, c->pile_a) == -1)
+	if (ft_check_unicity(c->nb, c->stack_a) == -1)
 		return (-1);
 	return (0);
 }

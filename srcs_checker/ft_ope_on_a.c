@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 11:07:48 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/22 12:20:34 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/22 13:04:45 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	ft_swap_a(t_check *c)
 
 	if (c->a < 1)
 		return ;
-	tmp = c->pile_a[c->a - 1];
-	c->pile_a[c->a - 1] = c->pile_a[c->a];
-	c->pile_a[c->a] = tmp;
+	tmp = c->stack_a[c->a - 1];
+	c->stack_a[c->a - 1] = c->stack_a[c->a];
+	c->stack_a[c->a] = tmp;
 }
 
 void	ft_push_a(t_check *c)
@@ -28,8 +28,8 @@ void	ft_push_a(t_check *c)
 	if (c->nb_b == 0)
 		return ;
 	c->a++;
-	c->pile_a[c->a] = c->pile_b[c->b];
-	c->pile_b[c->b] = 0;
+	c->stack_a[c->a] = c->stack_b[c->b];
+	c->stack_b[c->b] = 0;
 	c->nb_a++;
 	c->nb_b--;
 	c->b--;
@@ -43,13 +43,13 @@ void	ft_rotate_a(t_check *c)
 	if (c->nb_a == 0)
 		return ;
 	i = c->a;
-	tmp = c->pile_a[c->a];
+	tmp = c->stack_a[c->a];
 	while (i > 0)
 	{
-		c->pile_a[i] = c->pile_a[i - 1];
+		c->stack_a[i] = c->stack_a[i - 1];
 		i--;
 	}
-	c->pile_a[0] = tmp;
+	c->stack_a[0] = tmp;
 }
 
 void	ft_reverse_rotate_a(t_check *c)
@@ -60,11 +60,11 @@ void	ft_reverse_rotate_a(t_check *c)
 	if (c->nb_a == 0)
 		return ;
 	i = 0;
-	tmp = c->pile_a[0];
+	tmp = c->stack_a[0];
 	while (i + 1 < c->nb_a)
 	{
-		c->pile_a[i] = c->pile_a[i + 1];
+		c->stack_a[i] = c->stack_a[i + 1];
 		i++;
 	}
-	c->pile_a[c->a] = tmp;
+	c->stack_a[c->a] = tmp;
 }

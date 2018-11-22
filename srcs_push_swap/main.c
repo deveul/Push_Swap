@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 14:23:06 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/22 10:49:10 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/22 13:04:25 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	ft_init_swap(t_check *c)
 	i = 1;
 	j = 0;
 	while (i++ < (c->nb + 1))
-		c->pile_b[j++] = 0;
+		c->stack_b[j++] = 0;
 	c->nb_a = c->nb;
 	c->a = c->nb_a - 1;
 	c->nb_b = 0;
@@ -37,7 +37,7 @@ int			main(int argc, char **argv)
 		ft_printf("Error\n");
 		return (-1);
 	}
-	if (!(c.pile_b = malloc(sizeof(int) * c.nb)))
+	if (!(c.stack_b = malloc(sizeof(int) * c.nb)))
 		return (-1);
 	ft_init_swap(&c);
 	ft_printf("sa\n");
@@ -50,7 +50,7 @@ int			main(int argc, char **argv)
 	ft_printf("pa\n");
 	ft_printf("pa\n");
 	ft_printf("pa\n");
-	free(c.pile_a);
-	free(c.pile_b);
+	free(c.stack_a);
+	free(c.stack_b);
 	return (0);
 }
