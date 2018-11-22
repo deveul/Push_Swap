@@ -6,7 +6,7 @@
 #    By: vrenaudi <urenaudi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/26 14:25:25 by vrenaudi          #+#    #+#              #
-#    Updated: 2018/11/21 11:58:45 by vrenaudi         ###   ########.fr        #
+#    Updated: 2018/11/21 16:26:21 by vrenaudi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,15 +16,25 @@ CFLAGS = -Wall -Wextra -Werror -g3
 
 NAME = checker
 
-SRCS = ./srcs_checker/main.c \
-	   ./srcs_checker/ft_check_format.c \
-	   ./srcs_checker/ft_ope_on_a.c \
-	   ./srcs_checker/ft_ope_on_b.c \
-	   ./srcs_checker/ft_ope_on_both.c \
+NAMEPS = push_swap
 
-OBJ = $(SRCS:.c=.o)
+SRCSC = ./srcs_common/ft_check_format.c \
+	   	./srcs_common/ft_check_format_str.c
 
-HEAD = -I ./
+SRCSCH = ./srcs_checker/main.c \
+  		 ./srcs_checker/ft_ope_on_a.c \
+		 ./srcs_checker/ft_ope_on_b.c \
+		 ./srcs_checker/ft_ope_on_both.c \
+
+SRCSPS = ./srcs_push_swap/main.c \
+
+OBJC = $(SRCSC:.c=.o)
+
+OBJCH = $(SRCSCH:.c=.o)
+
+OBJPS = $(SRCSPS:.c=.o)
+
+HEAD = -I ./srcs_checker/. -I ./srcs_push_swap/.
 
 RM = rm -f
 
@@ -33,17 +43,18 @@ RM = rm -f
 
 all: $(NAME)
 
-$(NAME) : $(OBJ)
+$(NAME) : $(OBJC) $(OBJCH) $(OBJPS)
 	Make -C ./libft
-	$(CC) -o $(NAME) $(OBJ) $(CFLAGS) ./libft/libftprintf.a
+	$(CC) -o $(NAME) $(OBJC) $(OBJCH) $(CFLAGS) ./libft/libftprintf.a
+	$(CC) -o $(NAMEPS) $(OBJC) $(OBJPS) $(CFLAGS) ./libft/libftprintf.a
 
 clean:
 	Make clean -C ./libft
-	$(RM) $(OBJ)
+	$(RM) $(OBJC) $(OBJCH) $(OBJPS)
 
 fclean: clean
 	make fclean -C ./libft
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(NAMEPS)
 
 re:
 	$(MAKE) fclean

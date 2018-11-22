@@ -6,11 +6,12 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 15:33:46 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/21 10:18:24 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/22 10:49:44 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "../srcs_checker/checker.h"
+#include "../srcs_push_swap/push_swap.h"
 
 static int		ft_check_unicity(int argc, int *nbs)
 {
@@ -44,7 +45,7 @@ static int		*ft_fill_nbs(int argc, char **argv)
 	j = argc - 2;
 	if (!(nbs = ft_memalloc(sizeof(int) * argc)))
 		return (NULL);
-	 i = 1;
+	i = 1;
 	while (i < argc)
 	{
 		nbs[j] = ft_atoi(argv[i]);
@@ -74,16 +75,19 @@ static int		ft_check_if_only_nb(int argc, char **argv)
 	return (1);
 }
 
-int				ft_check_format(int argc, char **argv, t_check *check)
-{	
+int				ft_check_format(int argc, char **argv, t_check *c)
+{
 	if (argc == 1)
 		return (-1);
-	else if (ft_check_if_only_nb(argc, argv) == -1)
+	if (argc == 2)
+		if (ft_check_if_only_nb(argc, argv) == -1)
+			return (ft_check_format_str(argv[1], c));
+	c->nb = argc - 1;
+	if (ft_check_if_only_nb(c->nb + 1, argv) == -1)
 		return (-1);
-	else if (!(check->pile_a = ft_fill_nbs(argc, argv)))
+	else if (!(c->pile_a = ft_fill_nbs(c->nb + 1, argv)))
 		return (-1);
-	else if (ft_check_unicity((argc - 1), check->pile_a) == -1)
+	else if (ft_check_unicity(c->nb, c->pile_a) == -1)
 		return (-1);
-	ft_printf("format is OK\n");
 	return (0);
 }
