@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 14:23:06 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/22 14:37:24 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/23 12:26:00 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ static void	ft_print_stack(t_check *c)
 		j--;
 		i++;
 	}
+	ft_printf("nombre de coup joue : %d\n", c->nb_played++);
 }
 
 static void	ft_init_checker(t_check *c)
@@ -104,6 +105,7 @@ int			main(int argc, char **argv)
 	char	*line;
 
 	c.nb = -1;
+	c.nb_played = 0;
 	if (ft_check_format(argc, argv, &c) == -1)
 	{
 		ft_printf("Error\n");

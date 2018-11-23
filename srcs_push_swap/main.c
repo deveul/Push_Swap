@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 14:23:06 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/22 17:08:10 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/23 12:23:00 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,12 @@ static void	ft_init_swap(t_check *c, t_swap *s)
 	int		tmp;
 
 	i = 0;
-//	ft_printf("c->nb_a:%d\n", c->nb_a);
 	s->sort = ft_memalloc(sizeof(int) * c->nb_a);
 	while (i < c->nb_a)
 	{
-//		ft_printf("stack_a[i] : %d\n", c->stack_a[i]);
 		s->sort[i] = c->stack_a[i];
 		i++;
 	}
-	i = -1;
-//	while (++i < c->nb_a)
-//		ft_printf("%3d", s->sort[i]);
-//	ft_printf("\n");
 	i = c->nb_a;
 	while (i >= 0)
 	{
@@ -62,10 +56,6 @@ static void	ft_init_swap(t_check *c, t_swap *s)
 		}
 		i--;
 	}
-	i = -1;
-//	while (++i < c->nb_a)
-//		ft_printf("%3d", s->sort[i]);
-//	ft_putendl("");
 }
 
 int			main(int argc, char **argv)

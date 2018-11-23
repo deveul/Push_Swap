@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 14:26:49 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/22 13:02:29 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/23 12:23:25 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct	s_check
 	int			nb_b;
 	int			a;
 	int			b;
+	int			nb_played;
 }				t_check;
 
 int				ft_check_format(int argc, char **argv, t_check *check);

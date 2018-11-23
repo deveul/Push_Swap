@@ -6,7 +6,7 @@
 #    By: vrenaudi <urenaudi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/26 14:25:25 by vrenaudi          #+#    #+#              #
-#    Updated: 2018/11/22 15:01:53 by vrenaudi         ###   ########.fr        #
+#    Updated: 2018/11/23 12:38:54 by vrenaudi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ RM = rm -f
 %.o: %.c
 	$(CC) $(HEAD) $(CFLAGS) -o $@ -c $<
 
+.PHONY: all
 all: $(NAME)
 
 $(NAME) : $(OBJC) $(OBJCH) $(OBJPS)
@@ -49,16 +50,17 @@ $(NAME) : $(OBJC) $(OBJCH) $(OBJPS)
 	$(CC) -o $(NAME) $(OBJC) $(OBJCH) $(CFLAGS) ./libft/libftprintf.a
 	$(CC) -o $(NAMEPS) $(OBJC) $(OBJPS) $(CFLAGS) ./libft/libftprintf.a
 
+.PHONY : clean
 clean:
 	Make clean -C ./libft
 	$(RM) $(OBJC) $(OBJCH) $(OBJPS)
 
+.PHONY : fclean
 fclean: clean
 	make fclean -C ./libft
 	$(RM) $(NAME) $(NAMEPS)
 
+.PHONY : re
 re:
 	$(MAKE) fclean
 	$(MAKE)
-
-.PHONY: clean, re, fclean
