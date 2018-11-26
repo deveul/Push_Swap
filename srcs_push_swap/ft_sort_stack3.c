@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 14:54:35 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/26 18:06:04 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/26 18:26:41 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,24 @@ static void	ft_where_in_b(t_check *c, t_cbv *cbv, int i)
 	int		j;
 
 	nb = c->stack_a[i];
-//	ft_printf("nb = %d\n", nb);
 	j = 0;
-	while (j < c->nb_b)
+/*	ft_printf("nb est : %d\n", nb);
+	ft_printf("pile a: \n");
+	j = 0;
+	while (j < c->nb_a)
 	{
-//		ft_printf("%4d", c->stack_b[j]);
+		ft_printf("%4d", c->stack_a[j]);
 		j++;
 	}
-//	ft_putendl("");
+	ft_putendl("");
+	j = 0;
+	ft_printf("pile b: \n");
+	while (j < c->nb_b)
+	{
+		ft_printf("%4d", c->stack_b[j]);
+		j++;
+	}
+	ft_putendl("");*/
 //	ft_printf("posbmin:%d\n", cbv->posminb);
 //	ft_printf("minb:%d\n", cbv->minb);
 	pos = 0;
@@ -65,7 +75,7 @@ static void	ft_where_in_b(t_check *c, t_cbv *cbv, int i)
 		{
 			if (pos != c->b && nb > c->stack_b[pos] && nb < c->stack_b[pos + 1])
 			{
-//				ft_printf("pos:%d\n", pos);
+				ft_printf("pos:%d\n", pos);
 				cbv->rb = c->b - pos;
 				cbv->rrb = pos + 1;
 			}
@@ -271,7 +281,7 @@ void		ft_sort_stack3(t_check *c, t_swap *s)
 		cbv.bestrb = -1;
 		while (i >= 0)
 		{
-//			ft_printf("i est : %d\n", i);
+			ft_printf("i est : %d\n", i);
 			cbv.ra = c->a - i;
 			cbv.rra	= i + 1;
 			if (cbv.ra > cbv.rra)
@@ -281,12 +291,12 @@ void		ft_sort_stack3(t_check *c, t_swap *s)
 			ft_where_in_b(c, &cbv, i);
 			if (cbv.bestrb == -1)
 			{
-/*				ft_printf("--------------\n");
+				ft_printf("--------------\n");
 				ft_printf("cbv.firstra = %d\n", cbv.ra);
 				ft_printf("cbv.firstrb = %d\n", cbv.rb);
 				ft_printf("cbv.firstrra = %d\n", cbv.rra);
 				ft_printf("cbv.firstrrb = %d\n", cbv.rrb);
-*/				cbv.bestrb = cbv.rb;
+				cbv.bestrb = cbv.rb;
 				cbv.bestrrb = cbv.rrb;
 				cbv.bestra = cbv.ra;
 				cbv.bestrra = cbv.rra;
@@ -299,30 +309,30 @@ void		ft_sort_stack3(t_check *c, t_swap *s)
 				value = ft_calculate_value(&cbv);
 				if (value < cbv.bestvalue)
 				{
-//					ft_printf("change value with i = %d\n", i);
+					ft_printf("change value with i = %d\n", i);
 					cbv.bestrb = cbv.rb;
 					cbv.bestrrb = cbv.rrb;
 					cbv.bestra = cbv.ra;
 					cbv.bestrra = cbv.rra;
-/*					ft_printf("--------------\n");
+					ft_printf("--------------\n");
 					ft_printf("cbv.firstra = %d\n", cbv.ra);
 					ft_printf("cbv.firstrb = %d\n", cbv.rb);
 					ft_printf("cbv.firstrra = %d\n", cbv.rra);
 					ft_printf("cbv.firstrrb = %d\n", cbv.rrb);
-*/					cbv.bestbesta = cbv.besta;
+					cbv.bestbesta = cbv.besta;
 					cbv.bestbestb = cbv.bestb;
 					cbv.bestvalue = value;
 				}
 			}
 			i--;
 		}
-/*		ft_printf("--------------\n");
+		ft_printf("--------------\n");
 		ft_printf("cbv.bestra = %d\n", cbv.bestra);
 		ft_printf("cbv.bestrb = %d\n", cbv.bestrb);
 		ft_printf("cbv.bestrra = %d\n", cbv.bestrra);
 		ft_printf("cbv.bestrrb = %d\n", cbv.bestrrb);
-*/		ft_print_instructions(c, &cbv);
-//		ft_printf("nouveau coup\n");
+		ft_print_instructions(c, &cbv);
+		ft_printf("nouveau coup\n");
 		j = 0;
 		cbv.minb = c->stack_b[0];
 		while (j < c->nb_b)
