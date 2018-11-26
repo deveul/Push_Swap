@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 14:23:06 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/23 12:23:00 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/26 14:43:51 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ static void	ft_init_swap(t_check *c, t_swap *s)
 		s->sort[i] = c->stack_a[i];
 		i++;
 	}
-	i = c->nb_a;
+	i = c->a;
 	while (i >= 0)
 	{
-		j = c->nb_a;
+		j = c->a;
 		while (j >= 0)
 		{
 			if (s->sort[i] < s->sort[j])
@@ -56,6 +56,25 @@ static void	ft_init_swap(t_check *c, t_swap *s)
 		}
 		i--;
 	}
+}
+
+static void	ft_init_rev_swap(t_check *c, t_swap *s)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	s->revsort = ft_memalloc(sizeof(int) * c->nb_a);
+	j = c->a;
+	while (i < c->nb_a)
+	{
+		s->revsort[i] = s->sort[j];
+		i++;
+		j--;
+	}
+	i = 0;
+	while (i < c->nb)
+		i++;
 }
 
 int			main(int argc, char **argv)
@@ -73,7 +92,12 @@ int			main(int argc, char **argv)
 		return (-1);
 	ft_init_stack(&c);
 	ft_init_swap(&c, &s);
-	ft_sort_stack(&c, &s);
+	ft_init_rev_swap(&c, &s);
+	//ft_sort_stack(&c, &s);
+	if (c.nb < 10)
+		ft_sort_stack2(&c, &s);
+	else
+		ft_sort_stack3(&c, &s);
 	free(c.stack_a);
 	free(c.stack_b);
 	return (0);

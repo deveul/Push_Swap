@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 14:23:06 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/23 12:26:00 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/26 16:13:00 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static void	ft_print_stack(t_check *c)
 
 	i = 1;
 	j = c->nb - 1;
+	system("clear");
 	ft_printf("nb_a : %d		nb_b : %d\n", c->nb_a, c->nb_b);
 	ft_printf("stack a:		stack b:\n");
 	while (i < (c->nb + 1))
@@ -117,6 +118,8 @@ int			main(int argc, char **argv)
 	ft_print_stack(&c);
 	while (get_next_line(0, &line) > 0)
 	{
+		ft_putendl(line);
+		//sleep(1);
 		ft_instruction(&c, line);
 		ft_print_stack(&c);
 		ft_strdel(&line);

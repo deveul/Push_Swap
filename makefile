@@ -6,13 +6,13 @@
 #    By: vrenaudi <urenaudi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/26 14:25:25 by vrenaudi          #+#    #+#              #
-#    Updated: 2018/11/23 12:38:54 by vrenaudi         ###   ########.fr        #
+#    Updated: 2018/11/26 11:16:01 by vrenaudi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -g3
+CFLAGS = -Wall -Wextra -Werror -O2 -march=native -flto
 
 NAME = checker
 
@@ -28,6 +28,8 @@ SRCSCH = ./srcs_checker/main.c \
 
 SRCSPS = ./srcs_push_swap/main.c \
 		 ./srcs_push_swap/ft_sort_stack.c \
+		 ./srcs_push_swap/ft_sort_stack2.c \
+		 ./srcs_push_swap/ft_sort_stack3.c \
 
 OBJC = $(SRCSC:.c=.o)
 
