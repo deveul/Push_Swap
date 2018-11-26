@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 14:23:06 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/26 16:13:00 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/26 18:06:06 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,11 +119,13 @@ int			main(int argc, char **argv)
 	while (get_next_line(0, &line) > 0)
 	{
 		ft_putendl(line);
-		//sleep(1);
+//		sleep(1);
 		ft_instruction(&c, line);
 		ft_print_stack(&c);
+//		c.nb_played++;
 		ft_strdel(&line);
 	}
+//	ft_print_stack(&c);
 	ft_is_it_sort(&c);
 	free(c.stack_a);
 	free(c.stack_b);

@@ -6,13 +6,13 @@
 #    By: vrenaudi <urenaudi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/26 14:25:25 by vrenaudi          #+#    #+#              #
-#    Updated: 2018/11/26 11:16:01 by vrenaudi         ###   ########.fr        #
+#    Updated: 2018/11/26 16:31:57 by vrenaudi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -O2 -march=native -flto
+CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
 
 NAME = checker
 
