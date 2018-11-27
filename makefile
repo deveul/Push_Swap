@@ -6,7 +6,7 @@
 #    By: vrenaudi <urenaudi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/26 14:25:25 by vrenaudi          #+#    #+#              #
-#    Updated: 2018/11/26 16:31:57 by vrenaudi         ###   ########.fr        #
+#    Updated: 2018/11/27 15:27:36 by vrenaudi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,15 +21,20 @@ NAMEPS = push_swap
 SRCSC = ./srcs_common/ft_check_format.c \
 	   	./srcs_common/ft_check_format_str.c \
   		./srcs_common/ft_ope_on_a.c \
+  		./srcs_common/ft_ope_on_a_p.c \
 		./srcs_common/ft_ope_on_b.c \
-		./srcs_common/ft_ope_on_both.c
+		./srcs_common/ft_ope_on_b_p.c \
+		./srcs_common/ft_ope_on_both.c \
+		./srcs_common/ft_ope_on_both_p.c
 
 SRCSCH = ./srcs_checker/main.c \
 
 SRCSPS = ./srcs_push_swap/main.c \
-		 ./srcs_push_swap/ft_sort_stack.c \
 		 ./srcs_push_swap/ft_sort_stack2.c \
 		 ./srcs_push_swap/ft_sort_stack3.c \
+		 ./srcs_push_swap/ft_calculate_value.c \
+		 ./srcs_push_swap/ft_where_in_b.c \
+		 ./srcs_push_swap/ft_print_instructions.c \
 
 OBJC = $(SRCSC:.c=.o)
 

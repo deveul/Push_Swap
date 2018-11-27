@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 14:26:49 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/23 12:23:25 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/27 15:01:20 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,16 @@ void			ft_reverse_rotate_b(t_check *c);
 void			ft_swap_both(t_check *c);
 void			ft_rotate_both(t_check *c);
 void			ft_reverse_rotate_both(t_check *c);
+void			ft_swap_a_p(t_check *c);
+void			ft_push_a_p(t_check *c);
+void			ft_rotate_a_p(t_check *c);
+void			ft_reverse_rotate_a_p(t_check *c);
+void			ft_swap_b_p(t_check *c);
+void			ft_push_b_p(t_check *c);
+void			ft_rotate_b_p(t_check *c);
+void			ft_reverse_rotate_b_p(t_check *c);
+void			ft_swap_both_p(t_check *c);
+void			ft_rotate_both_p(t_check *c);
+void			ft_reverse_rotate_both_p(t_check *c);
 
 #endif

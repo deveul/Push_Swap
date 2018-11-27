@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 14:23:06 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/26 18:06:06 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/27 15:31:17 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ static void	ft_print_stack(t_check *c)
 		i++;
 	}
 	ft_printf("nombre de coup joue : %d\n", c->nb_played++);
+	//if (c->nb_played == 4000)
+	//	sleep(300);
 }
 
 static void	ft_init_checker(t_check *c)
@@ -85,7 +87,10 @@ static void	ft_instruction(t_check *c, char *line)
 	else if (ft_strequ(line, "pa"))
 		ft_push_a(c);
 	else if (ft_strequ(line, "pb"))
+	{
+//		sleep(1);
 		ft_push_b(c);
+	}
 	else if (ft_strequ(line, "ra"))
 		ft_rotate_a(c);
 	else if (ft_strequ(line, "rb"))
@@ -122,6 +127,7 @@ int			main(int argc, char **argv)
 //		sleep(1);
 		ft_instruction(&c, line);
 		ft_print_stack(&c);
+//		sleep(1);
 //		c.nb_played++;
 		ft_strdel(&line);
 	}

@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 14:26:49 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/26 14:25:25 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/27 13:58:36 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,10 @@ typedef struct	s_cbv
 	int			posmaxb;
 }				t_cbv;
 
-void			ft_sort_stack(t_check *c, t_swap *s);
 void			ft_sort_stack2(t_check *c, t_swap *s);
-void			ft_sort_stack3(t_check *c, t_swap *s);
+void			ft_sort_stack3(t_check *c);
+int				ft_calculate_value(t_cbv *cbv);
+void			ft_where_in_b(t_check *c, t_cbv *cbv, int i);
+void			ft_print_instructions(t_check *c, t_cbv *cbv);
 
 #endif
