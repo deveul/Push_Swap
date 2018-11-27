@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 14:54:35 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/23 16:13:12 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/27 16:55:39 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	ft_locate_int(t_check *c, t_swap *s, int pos)
 	return (j);
 }
 
-static int	ft_a_is_sort(t_check *c, t_swap *s)
+int			ft_a_is_sort(t_check *c, t_swap *s)
 {
 	int		i;
 

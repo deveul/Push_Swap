@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 13:42:52 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/27 15:18:16 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/27 17:23:15 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,15 +71,31 @@ static void	ft_print_diff_one(t_check *c, t_cbv *cbv)
 	int		i;
 
 	i = 0;
-	while (i < cbv->bestra)
+	if (cbv->bestra + cbv->bestrrb < cbv->bestrb)
 	{
-		ft_rotate_a_p(c);
-		i++;
+		while (i < cbv->bestra)
+		{
+			ft_rotate_a_p(c);
+			i++;
+		}
+		while (i < cbv->bestvalue)
+		{
+			ft_reverse_rotate_b_p(c);
+			i++;
+		}
 	}
-	while (i < cbv->bestvalue)
+	else
 	{
-		ft_reverse_rotate_b_p(c);
-		i++;
+		while (i < cbv->bestra)
+		{
+			ft_rotate_both_p(c);
+			i++;
+		}
+		while (i < cbv->bestrb)
+		{
+			ft_rotate_b_p(c);
+			i++;
+		}
 	}
 }
 
@@ -88,15 +104,31 @@ static void	ft_print_diff_two(t_check *c, t_cbv *cbv)
 	int		i;
 
 	i = 0;
-	while (i < cbv->bestrra)
+	if (cbv->bestrra + cbv->bestrb < cbv->bestrrb)
 	{
-		ft_reverse_rotate_a_p(c);
-		i++;
+		while (i < cbv->bestrra)
+		{
+			ft_reverse_rotate_a_p(c);
+			i++;
+		}
+		while (i < cbv->bestvalue)
+		{
+			ft_rotate_b_p(c);
+			i++;
+		}
 	}
-	while (i < cbv->bestvalue)
+	else
 	{
-		ft_rotate_b_p(c);
-		i++;
+		while (i < cbv->bestrra)
+		{
+			ft_reverse_rotate_both_p(c);
+			i++;
+		}
+		while (i < cbv->bestrrb)
+		{
+			ft_rotate_b_p(c);
+			i++;
+		}
 	}
 }
 

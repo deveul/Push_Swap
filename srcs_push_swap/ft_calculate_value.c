@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 13:37:47 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/27 15:31:27 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/27 17:23:17 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,19 @@ static int	ft_calc_diff_best(t_cbv *cbv)
 
 	value = -1;
 	if (cbv->besta == 1)
-		value = cbv->ra + cbv->rrb;
+	{
+		if (cbv->ra + cbv->rrb < cbv->rb)
+			value = cbv->ra + cbv->rrb;
+		else
+			value = cbv->rb;
+	}
 	else if (cbv->besta == 2)
-		value = cbv->rra + cbv->rb;
+	{
+		if (cbv->rra + cbv->rb < cbv->rrb)
+			value = cbv->rra + cbv->rb;
+		else
+			value = cbv->rrb;
+	}
 	return (value);
 }
 
