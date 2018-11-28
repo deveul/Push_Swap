@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 14:54:35 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/28 12:21:17 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/28 14:42:59 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,17 @@
 static void	ft_finish_instructions(t_check *c, t_cbv *cbv, t_swap *s)
 {
 	if (cbv->posminb > (c->nb / 2))
-	{
 		while (c->stack_b[0] != cbv->minb)
 		{
 			ft_printf("rb\n");
 			ft_rotate_b(c);
 		}
-	}
 	else
-	{
 		while (c->stack_b[0] != cbv->minb)
 		{
 			ft_printf("rrb\n");
 			ft_reverse_rotate_b(c);
 		}
-	}
 	while (c->nb_b > 0)
 	{
 		ft_reverse_rotate_a(c);
@@ -48,30 +44,24 @@ static void	ft_update_min_max(t_check *c, t_cbv *cbv)
 {
 	int		j;
 
-	j = 0;
+	j = -1;
 	cbv->minb = c->stack_b[0];
 	cbv->posminb = 0;
-	while (j < c->nb_b)
-	{
+	while (++j < c->nb_b)
 		if (c->stack_b[j] < cbv->minb)
 		{
 			cbv->minb = c->stack_b[j];
 			cbv->posminb = j;
 		}
-		j++;
-	}
-	j = 0;
+	j = -1;
 	cbv->maxb = c->stack_b[0];
 	cbv->posmaxb = 0;
-	while (j < c->nb_b)
-	{
+	while (++j < c->nb_b)
 		if (c->stack_b[j] > cbv->maxb)
 		{
 			cbv->maxb = c->stack_b[j];
 			cbv->posmaxb = j;
 		}
-		j++;
-	}
 }
 
 static void	ft_init_pile_b(t_check *c, t_cbv *cbv)

@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 14:23:06 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/27 16:48:17 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/28 14:42:56 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,10 @@ static void	ft_init_swap(t_check *c, t_swap *s)
 	int		j;
 	int		tmp;
 
-	i = 0;
+	i = -1;
 	s->sort = ft_memalloc(sizeof(int) * c->nb_a);
-	while (i < c->nb_a)
-	{
+	while (++i < c->nb_a)
 		s->sort[i] = c->stack_a[i];
-		i++;
-	}
 	i = c->a;
 	while (i >= 0)
 	{
@@ -93,6 +90,8 @@ int			main(int argc, char **argv)
 	ft_init_stack(&c);
 	ft_init_swap(&c, &s);
 	ft_init_rev_swap(&c, &s);
+	if (ft_a_is_sort(&c, &s) == 1)
+		return (0);
 	if (c.nb < 10)
 		ft_sort_stack2(&c, &s);
 	else

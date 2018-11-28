@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 14:26:49 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/28 11:19:22 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/28 13:31:04 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ typedef struct	s_cbv
 void			ft_sort_stack2(t_check *c, t_swap *s);
 void			ft_sort_stack3(t_check *c, t_swap *s);
 int				ft_calculate_value(t_cbv *cbv);
+void			ft_calc_diff_best(t_cbv *cbv, int *value);
 void			ft_where_in_b(t_check *c, t_cbv *cbv, int i);
 void			ft_print_instructions(t_check *c, t_cbv *cbv);
 void			ft_do_and_print(t_check *c, t_cbv *cbv);

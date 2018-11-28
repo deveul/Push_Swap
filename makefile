@@ -6,7 +6,7 @@
 #    By: vrenaudi <urenaudi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/26 14:25:25 by vrenaudi          #+#    #+#              #
-#    Updated: 2018/11/28 11:25:32 by vrenaudi         ###   ########.fr        #
+#    Updated: 2018/11/28 13:35:09 by vrenaudi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ SRCSPS = ./srcs_push_swap/main.c \
 		 ./srcs_push_swap/ft_calculate_value.c \
 		 ./srcs_push_swap/ft_where_in_b.c \
 		 ./srcs_push_swap/ft_do_and_print.c \
+		 ./srcs_push_swap/ft_calc_diff_best.c \
 
 OBJC = $(SRCSC:.c=.o)
 
