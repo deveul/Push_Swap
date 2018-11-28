@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_stack3.c                                   :+:      :+:    :+:   */
+/*   ft_sort_big.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 14:54:35 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/28 14:42:59 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/28 14:50:54 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,13 +96,12 @@ static void	ft_compare_values(t_cbv *cbv, int value, int *i)
 		cbv->bestrr = cbv->rr;
 		cbv->bestrrr = cbv->rrr;
 		cbv->bestbesta = cbv->besta;
-		cbv->bestbestb = cbv->bestb;
 		cbv->bestvalue = value;
 	}
 	(*i)--;
 }
 
-void		ft_sort_stack3(t_check *c, t_swap *s)
+void		ft_sort_big(t_check *c, t_swap *s)
 {
 	int		i;
 	int		value;

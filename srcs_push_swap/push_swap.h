@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 14:26:49 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/28 13:31:04 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/28 14:58:05 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,35 +25,33 @@ typedef struct	s_swap
 
 typedef struct	s_cbv
 {
-	int			bestrb;
-	int			bestrrb;
 	int			bestra;
-	int			bestrra;
+	int			bestrb;
 	int			bestrr;
+	int			bestrra;
+	int			bestrrb;
 	int			bestrrr;
-	int			ra;
-	int			rra;
 	int			besta;
-	int			bestbesta;
-	int			rb;
-	int			rrb;
 	int			bestb;
-	int			bestbestb;
-	int			rr;
-	int			rrr;
+	int			bestbesta;
 	int			bestvalue;
+	int			ra;
+	int			rb;
+	int			rr;
+	int			rra;
+	int			rrb;
+	int			rrr;
 	int			minb;
-	int			posminb;
 	int			maxb;
+	int			posminb;
 	int			posmaxb;
 }				t_cbv;
 
-void			ft_sort_stack2(t_check *c, t_swap *s);
-void			ft_sort_stack3(t_check *c, t_swap *s);
+void			ft_sort_small(t_check *c, t_swap *s);
+void			ft_sort_big(t_check *c, t_swap *s);
 int				ft_calculate_value(t_cbv *cbv);
 void			ft_calc_diff_best(t_cbv *cbv, int *value);
 void			ft_where_in_b(t_check *c, t_cbv *cbv, int i);
-void			ft_print_instructions(t_check *c, t_cbv *cbv);
 void			ft_do_and_print(t_check *c, t_cbv *cbv);
 int				ft_a_is_sort(t_check *c, t_swap *s);
 

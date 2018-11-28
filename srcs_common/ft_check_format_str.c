@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 15:12:14 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/26 17:28:52 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/28 15:49:49 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,21 @@ static int		ft_check_if_only_nb_space(char *str)
 	while (str[i])
 	{
 		if (str[i] != '-' && !ft_isdigit(str[i]) && str[i] != ' ')
-				return (-1);
+			return (-1);
 		i++;
 	}
 	return (1);
 }
 
-int		ft_check_format_str(char *str, t_check *c)
+int				ft_check_format_str(char *str, t_check *c, int argc)
 {
 	char	**tab;
 	int		i;
 	int		j;
 
 	i = 0;
+	if (argc == 3)
+		c->optionv = 1;
 	if (ft_check_if_only_nb_space(str) == -1)
 		return (-1);
 	tab = ft_strsplit(str, ' ');
@@ -67,11 +69,7 @@ int		ft_check_format_str(char *str, t_check *c)
 	i = 0;
 	j = c->nb - 1;
 	while (tab[i])
-	{
-		c->stack_a[j] = ft_atoi(tab[i]);
-		i++;
-		j--;
-	}
+		c->stack_a[j--] = ft_atoi(tab[i++]);
 	if (ft_check_unicity(c->nb, c->stack_a) == -1)
 		return (-1);
 	return (0);

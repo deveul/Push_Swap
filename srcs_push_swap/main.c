@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 14:23:06 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/28 14:42:56 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/28 15:51:59 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,9 +93,9 @@ int			main(int argc, char **argv)
 	if (ft_a_is_sort(&c, &s) == 1)
 		return (0);
 	if (c.nb < 10)
-		ft_sort_stack2(&c, &s);
+		ft_sort_small(&c, &s);
 	else
-		ft_sort_stack3(&c, &s);
+		ft_sort_big(&c, &s);
 	free(c.stack_a);
 	free(c.stack_b);
 	return (0);

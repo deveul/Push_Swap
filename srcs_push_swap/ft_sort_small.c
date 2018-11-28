@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_stack.c                                    :+:      :+:    :+:   */
+/*   ft_sort_small.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 14:54:35 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/28 14:42:57 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/28 14:51:35 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static void	ft_pos_below_middle(t_check *c, int pos)
 		ft_swap_a_p(c);
 }
 
-void		ft_sort_stack2(t_check *c, t_swap *s)
+void		ft_sort_small(t_check *c, t_swap *s)
 {
 	int		i;
 	int		pos;

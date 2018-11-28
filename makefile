@@ -6,7 +6,7 @@
 #    By: vrenaudi <urenaudi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/26 14:25:25 by vrenaudi          #+#    #+#              #
-#    Updated: 2018/11/28 13:35:09 by vrenaudi         ###   ########.fr        #
+#    Updated: 2018/11/28 14:51:56 by vrenaudi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,8 +30,8 @@ SRCSC = ./srcs_common/ft_check_format.c \
 SRCSCH = ./srcs_checker/main.c \
 
 SRCSPS = ./srcs_push_swap/main.c \
-		 ./srcs_push_swap/ft_sort_stack2.c \
-		 ./srcs_push_swap/ft_sort_stack3.c \
+		 ./srcs_push_swap/ft_sort_small.c \
+		 ./srcs_push_swap/ft_sort_big.c \
 		 ./srcs_push_swap/ft_calculate_value.c \
 		 ./srcs_push_swap/ft_where_in_b.c \
 		 ./srcs_push_swap/ft_do_and_print.c \
