@@ -6,13 +6,13 @@
 /*   By: vrenaudi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/11 12:31:08 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/28 17:02:15 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/28 17:03:40 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+long	ft_atol(const char *str)
 {
 	int				i;
 	unsigned long	nb;

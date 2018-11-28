@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 15:12:14 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/28 15:59:29 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/28 17:13:07 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int				ft_check_format_str(char *str, t_check *c)
 	char	**tab;
 	int		i;
 	int		j;
+	long	tmp;
 
 	i = 0;
 	if (ft_check_if_only_nb_space(str) == -1)
@@ -67,7 +68,12 @@ int				ft_check_format_str(char *str, t_check *c)
 	i = 0;
 	j = c->nb - 1;
 	while (tab[i])
+	{
+		tmp = ft_atol(tab[i]);
+		if (tmp > 2147483647 || tmp < -2147483648)
+			return (-1);
 		c->stack_a[j--] = ft_atoi(tab[i++]);
+	}
 	if (ft_check_unicity(c->nb, c->stack_a) == -1)
 		return (-1);
 	return (0);

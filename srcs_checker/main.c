@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 14:23:06 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/28 16:25:02 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/28 17:12:20 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,12 +106,15 @@ static void	ft_instruction(t_check *c, char *line)
 		ft_reverse_rotate_both(c);
 }
 
+//gerer fausses instructions en mettant 0
 int			main(int argc, char **argv)
 {
 	t_check	c;
 	char	*line;
 
 	line = NULL;
+	if (argc == 1)
+		return (0);
 	c.optionv = ft_strequ(argv[argc - 1], "-v");
 	argc -= c.optionv;
 	if (ft_check_format(argc, argv, &c) == -1)

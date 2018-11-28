@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 15:33:46 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/28 16:25:00 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/28 17:13:09 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ static int		ft_check_unicity(int argc, int *nbs)
 static int		*ft_fill_nbs(int argc, char **argv)
 {
 	int		*nbs;
+	long	tmp;
 	int		i;
 	int		j;
 
@@ -48,6 +49,9 @@ static int		*ft_fill_nbs(int argc, char **argv)
 	i = 1;
 	while (i < argc)
 	{
+		tmp = ft_atol(argv[i]);
+		if (tmp > 2147483647 || tmp < -2147483648)
+			return (NULL);
 		nbs[j] = ft_atoi(argv[i]);
 		i++;
 		j--;

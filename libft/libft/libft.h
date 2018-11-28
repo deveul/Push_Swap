@@ -6,7 +6,7 @@
 /*   By: vrenaudi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/05 15:43:20 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/14 11:06:45 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/28 17:04:01 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ char			*ft_strrpcall(char *s, int c, int d);
 int				ft_bi_to_dec(char *bi);
 int				ft_power(int nb, int power);
 int				ft_atoi(const char *str);
+long			ft_atol(const char *str);
 size_t			ft_charlen(wchar_t wc);
 int				ft_intlen(int nb);
 int				ft_unsintlen(unsigned int nb);
