@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 15:12:14 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/28 15:49:49 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/28 15:59:29 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,13 @@ static int		ft_check_if_only_nb_space(char *str)
 	return (1);
 }
 
-int				ft_check_format_str(char *str, t_check *c, int argc)
+int				ft_check_format_str(char *str, t_check *c)
 {
 	char	**tab;
 	int		i;
 	int		j;
 
 	i = 0;
-	if (argc == 3)
-		c->optionv = 1;
 	if (ft_check_if_only_nb_space(str) == -1)
 		return (-1);
 	tab = ft_strsplit(str, ' ');
