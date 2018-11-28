@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 14:23:06 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/28 17:12:20 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/28 17:25:34 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ static int	ft_is_it_sort(t_check *c)
 	return (1);
 }
 
-static void	ft_instruction(t_check *c, char *line)
+static int	ft_instruction(t_check *c, char *line)
 {
 	if (ft_strequ(line, "sa"))
 		ft_swap_a(c);
@@ -104,9 +104,14 @@ static void	ft_instruction(t_check *c, char *line)
 		ft_reverse_rotate_b(c);
 	else if (ft_strequ(line, "rrr"))
 		ft_reverse_rotate_both(c);
+	else
+	{
+		ft_printf("Error\n");
+		return (-1);
+	}
+	return (0);
 }
 
-//gerer fausses instructions en mettant 0
 int			main(int argc, char **argv)
 {
 	t_check	c;
@@ -128,7 +133,8 @@ int			main(int argc, char **argv)
 	ft_print_stack(&c, line);
 	while (get_next_line(0, &line) > 0)
 	{
-		ft_instruction(&c, line);
+		if (ft_instruction(&c, line) == -1)
+			return (-1);
 		ft_print_stack(&c, line);
 		ft_strdel(&line);
 	}

@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 14:54:35 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/28 14:51:35 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/28 18:01:01 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,40 @@ int			ft_a_is_sort(t_check *c, t_swap *s)
 			return (-1);
 		i++;
 	}
+	return (1);
+}
+
+static int	ft_a_is_sort_circular(t_check *c, t_swap *s)
+{
+	int		i;
+	int		start;
+
+	i = 0;
+	start = 0;
+	ft_swap_a(c);
+	while (i < c->nb)
+	{
+		if (s->sort[i] == c->stack_a[0])
+		{
+			start = i;
+			break ;
+		}
+		i++;
+	}
+	i = 0;
+	while (i < c->nb_a)
+	{
+		if (start == c->nb)
+			start = 0;
+		if (c->stack_a[i] != s->sort[start])
+		{
+			ft_swap_a(c);
+			return (-1);
+		}
+		start++;
+		i++;
+	}
+	ft_printf("sa\n");
 	return (1);
 }
 
@@ -78,6 +112,7 @@ void		ft_sort_small(t_check *c, t_swap *s)
 	{
 		if (ft_sort_if_swap(c, s) == 1)
 			break ;
+		ft_a_is_sort_circular(c, s);
 		pos = ft_locate_int(c, s, i);
 		middle_a = c->nb_a / 2;
 		if (pos <= middle_a)
