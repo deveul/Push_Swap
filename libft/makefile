@@ -6,7 +6,7 @@
 #    By: vrenaudi <urenaudi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/26 14:25:25 by vrenaudi          #+#    #+#              #
-#    Updated: 2018/11/28 17:02:44 by vrenaudi         ###   ########.fr        #
+#    Updated: 2018/11/29 15:20:35 by vrenaudi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,8 @@ SRCS = ./printf/ft_printf.c ./printf/ft_get_fmt.c ./printf/ft_conv_c.c \
 	   ./libft/ft_strjoinuntilc.c ./libft/ft_memjoin.c \
 	   ./libft/ft_memjoinfreeall.c ./libft/ft_putmemstr.c ./libft/ft_memdup.c \
  	   ./libft/ft_strlct.c ./libft/ft_strjoinone.c ./libft/ft_dectobi_ll.c \
-	   ./libft/get_next_line.c ./libft/ft_atol.c
+	   ./libft/get_next_line.c ./libft/ft_atol.c ./libft/ft_strdelret.c \
+	   ./libft/ft_del_tab.c ./libft/ft_tablen.c ./libft/ft_swap.c
 
 OBJ = $(SRCS:.c=.o)
 

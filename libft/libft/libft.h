@@ -6,7 +6,7 @@
 /*   By: vrenaudi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/05 15:43:20 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/28 17:04:01 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/29 15:20:12 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int				ft_strequ(char const *s1, char const *s2);
 int				ft_strlenuntilc(const char *s, char c);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
 int				ft_strnequ(char const *s1, char const *s2, size_t n);
+int				ft_tablen(char **tab);
 int				ft_tolower(int c);
 int				ft_toupper(int c);
 char			**ft_strsplit(char const *s, char c);
@@ -115,6 +116,9 @@ void			ft_putwstr(wchar_t const *s, int len);
 void			ft_putstr_fd(char const *s, int fd);
 void			ft_strclr(char *s);
 void			ft_strdel(char **as);
+void			ft_swap(int *nb1, int *nb2);
+void			ft_del_tab(char **tab);
+int				ft_strdelret(char **as, int ret);
 void			ft_striter(char *s, void (*f)(char *));
 void			ft_striteri(char *s, void (*f)(unsigned int, char *));
 size_t			ft_strlcat(char *s1, const char *s2, size_t size);

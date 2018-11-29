@@ -6,40 +6,11 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 14:23:06 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/29 12:40:09 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/29 15:16:15 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
-
-static void	ft_print_stack(t_check *c, char *line)
-{
-	int		i;
-	int		j;
-
-	if (c->optionv == 0)
-		return ;
-	i = 1;
-	j = c->nb - 1;
-	ft_putendl(line);
-	ft_printf("nb_a : %d		nb_b : %d\n", c->nb_a, c->nb_b);
-	ft_printf("stack a:		stack b:\n");
-	while (i < (c->nb + 1))
-	{
-		if (j < c->nb_a)
-			ft_printf("%8d", c->stack_a[j]);
-		else
-			ft_printf("%8.d", 0);
-		if (j < c->nb_b)
-			ft_printf("%8d", c->stack_b[j]);
-		else
-			ft_printf("%8.d", 0);
-		ft_printf("\n");
-		j--;
-		i++;
-	}
-	ft_printf("nombre de coup joue : %d\n", c->nb_played++);
-}
 
 static void	ft_init_checker(t_check *c)
 {
@@ -105,9 +76,23 @@ static int	ft_instruction(t_check *c, char *line)
 	else if (ft_strequ(line, "rrr"))
 		ft_reverse_rotate_both(c);
 	else
-	{
-		ft_printf("Error\n");
 		return (-1);
+	return (0);
+}
+
+static int	ft_run(t_check *c)
+{
+	char	*line;
+
+	while (get_next_line(0, &line) > 0)
+	{
+		if (ft_instruction(c, line) == -1)
+		{
+			ft_printf("Error\n");
+			return (-1);
+		}
+		ft_print_stack(c, line);
+		ft_strdel(&line);
 	}
 	return (0);
 }
@@ -115,27 +100,23 @@ static int	ft_instruction(t_check *c, char *line)
 int			main(int argc, char **argv)
 {
 	t_check	c;
-	char	*line;
 
-	line = NULL;
 	if (argc == 1)
 		return (0);
-	if (ft_check_format_b(argc, argv, &c) == -1)
+	if (ft_check_format(argc, argv, &c) == -1)
 	{
 		ft_printf("Error\n");
 		return (-1);
 	}
 	if (!(c.stack_b = malloc(sizeof(int) * c.nb)))
-		return (-1);
-	ft_init_checker(&c);
-	ft_print_stack(&c, line);
-	while (get_next_line(0, &line) > 0)
 	{
-		if (ft_instruction(&c, line) == -1)
-			return (-1);
-		ft_print_stack(&c, line);
-		ft_strdel(&line);
+		free(c.stack_a);
+		return (-1);
 	}
+	ft_init_checker(&c);
+	ft_print_stack(&c, NULL);
+	if (ft_run(&c) == -1)
+		return (-1);
 	ft_is_it_sort(&c);
 	free(c.stack_a);
 	free(c.stack_b);

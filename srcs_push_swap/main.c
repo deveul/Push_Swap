@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 14:23:06 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/29 12:41:28 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/29 15:27:15 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,14 @@ static void	ft_init_swap(t_check *c, t_swap *s)
 {
 	int		i;
 	int		j;
-	int		tmp;
 
 	i = -1;
-	s->sort = ft_memalloc(sizeof(int) * c->nb_a);
+	if (!(s->sort = malloc(sizeof(int) * c->nb_a)))
+	{
+		free(c->stack_a);
+		free(c->stack_b);
+		exit(0);
+	}
 	while (++i < c->nb_a)
 		s->sort[i] = c->stack_a[i];
 	i = c->a;
@@ -44,11 +48,7 @@ static void	ft_init_swap(t_check *c, t_swap *s)
 		while (j >= 0)
 		{
 			if (s->sort[i] < s->sort[j])
-			{
-				tmp = s->sort[i];
-				s->sort[i] = s->sort[j];
-				s->sort[j] = tmp;
-			}
+				ft_swap(&s->sort[i], &s->sort[j]);
 			j--;
 		}
 		i--;
@@ -61,7 +61,13 @@ static void	ft_init_rev_swap(t_check *c, t_swap *s)
 	int		j;
 
 	i = 0;
-	s->revsort = ft_memalloc(sizeof(int) * c->nb_a);
+	if (!(s->revsort = malloc(sizeof(int) * c->nb_a)))
+	{
+		free(s->sort);
+		free(c->stack_a);
+		free(c->stack_b);
+		exit(0);
+	}
 	j = c->a;
 	while (i < c->nb_a)
 	{
@@ -74,29 +80,45 @@ static void	ft_init_rev_swap(t_check *c, t_swap *s)
 		i++;
 }
 
+static void	ft_solve_it(t_check *c, t_swap *s)
+{
+	if (ft_a_is_sort(c, s) == 1)
+	{
+		free(c->stack_a);
+		free(c->stack_b);
+		return ;
+	}
+	if (c->nb < 7)
+		ft_sort_small(c, s);
+	else
+		ft_sort_big(c, s);
+}
+
 int			main(int argc, char **argv)
 {
 	t_check	c;
 	t_swap	s;
 
+	if (argc == 1)
+		return (-1);
 	c.nb = -1;
-	if (ft_check_format_b(argc, argv, &c) == -1)
+	if (ft_check_format(argc, argv, &c) == -1)
 	{
 		ft_printf("Error\n");
 		return (-1);
 	}
 	if (!(c.stack_b = malloc(sizeof(int) * c.nb)))
+	{
+		free(c.stack_a);
 		return (-1);
+	}
 	ft_init_stack(&c);
 	ft_init_swap(&c, &s);
 	ft_init_rev_swap(&c, &s);
-	if (ft_a_is_sort(&c, &s) == 1)
-		return (0);
-	if (c.nb < 10)
-		ft_sort_small(&c, &s);
-	else
-		ft_sort_big(&c, &s);
+	ft_solve_it(&c, &s);
 	free(c.stack_a);
 	free(c.stack_b);
+	free(s.sort);
+	free(s.revsort);
 	return (0);
 }
