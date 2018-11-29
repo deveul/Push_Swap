@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 15:33:46 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/29 15:43:24 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/29 16:03:14 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,12 @@ static int		ft_stick_args(int argc, char **argv, t_check *c, char *arg)
 			c->optionv = 1;
 		else if (ft_strequ(argv[i], "-s"))
 			c->option_s = 1;
+		else if (ft_strequ(argv[i], "-s1"))
+			c->option_s = 1;
+		else if (ft_strequ(argv[i], "-s2"))
+			c->option_s = 2;
+		else if (ft_strequ(argv[i], "-s3"))
+			c->option_s = 3;
 		else
 		{
 			if (!(arg = ft_strjoinfree(arg, " ")))
