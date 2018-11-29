@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 14:54:35 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/29 14:59:13 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/29 16:59:57 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,24 @@ static void	ft_finish_instructions(t_check *c, t_cbv *cbv, t_swap *s)
 	if (cbv->posminb > (c->nb / 2))
 		while (c->stack_b[0] != cbv->minb)
 		{
-			ft_printf("rb\n");
+			ft_dprintf(c->wfd, "rb\n");
 			ft_rotate_b(c);
 		}
 	else
 		while (c->stack_b[0] != cbv->minb)
 		{
-			ft_printf("rrb\n");
+			ft_dprintf(c->wfd, "rrb\n");
 			ft_reverse_rotate_b(c);
 		}
 	while (c->nb_b > 0)
 	{
 		ft_reverse_rotate_a(c);
 		if (ft_a_is_sort(c, s) == 1)
-			ft_printf("rra\n");
+			ft_dprintf(c->wfd, "rra\n");
 		else
 			ft_rotate_a(c);
 		ft_push_a(c);
-		ft_printf("pa\n");
+		ft_dprintf(c->wfd, "pa\n");
 	}
 	if (ft_a_is_sort(c, s) == -1)
 		ft_reverse_rotate_a_p(c);
@@ -68,7 +68,7 @@ static void	ft_init_pile_b(t_check *c, t_cbv *cbv)
 {
 	ft_push_b(c);
 	ft_push_b(c);
-	ft_printf("pb\npb\n");
+	ft_dprintf(c->wfd, "pb\npb\n");
 	if (c->stack_b[c->b] > c->stack_b[0])
 	{
 		cbv->minb = c->stack_b[0];

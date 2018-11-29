@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 14:54:35 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/29 12:02:22 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/29 16:59:34 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static int	ft_a_is_sort_circular(t_check *c, t_swap *s)
 			return (-1);
 		}
 	}
-	ft_printf("sa\n");
+	ft_dprintf(c->wfd, "sa\n");
 	return (1);
 }
 
@@ -61,7 +61,7 @@ static int	ft_sort_if_swap(t_check *c, t_swap *s)
 	ft_swap_a(c);
 	if (ft_a_is_sort(c, s) == 1)
 	{
-		ft_printf("sa\n");
+		ft_dprintf(c->wfd, "sa\n");
 		return (1);
 	}
 	ft_swap_a(c);

@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 14:23:06 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/29 15:40:04 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/29 17:23:11 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,19 +35,19 @@ static int	ft_is_it_sort(t_check *c)
 	i = 1;
 	if (c->nb_b != 0)
 	{
-		ft_printf("KO\n");
+		ft_dprintf(c->wfd, "KO\n");
 		return (-1);
 	}
 	while (i < c->nb_a)
 	{
 		if (c->stack_a[i] >= c->stack_a[i - 1])
 		{
-			ft_printf("KO\n");
+			ft_dprintf(c->wfd, "KO\n");
 			return (-1);
 		}
 		i++;
 	}
-	ft_printf("OK\n");
+	ft_dprintf(c->wfd, "OK\n");
 	return (1);
 }
 
@@ -84,11 +84,11 @@ static int	ft_run(t_check *c)
 {
 	char	*line;
 
-	while (get_next_line(0, &line) > 0)
+	while (get_next_line(c->rfd, &line) > 0)
 	{
 		if (ft_instruction(c, line) == -1)
 		{
-			ft_printf("Error\n");
+			ft_dprintf(c->wfd, "Error\n");
 			return (-1);
 		}
 		ft_print_stack(c, line);
@@ -112,6 +112,14 @@ int			main(int argc, char **argv)
 	{
 		free(c.stack_a);
 		return (-1);
+	}
+	c.rfd = 0;
+	c.wfd = 1;
+	if (c.option_trace == 1)
+	{
+		if ((c.rfd = open("trace_push_swap", O_RDWR, 0777)) == -1)
+			c.rfd = 0;
+		c.wfd = open("trace_checker", O_CREAT | O_RDWR | O_TRUNC, 0777);
 	}
 	ft_init_checker(&c);
 	ft_print_stack(&c, NULL);

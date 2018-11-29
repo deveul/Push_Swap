@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 14:26:49 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/29 15:34:12 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/29 17:01:48 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "../libft/printf/ft_printf.h"
 # include "../libft/libft/get_next_line.h"
+# include <fcntl.h>
 
 typedef struct	s_check
 {
@@ -26,8 +27,11 @@ typedef struct	s_check
 	int			a;
 	int			b;
 	int			nb_played;
+	int			rfd;
+	int			wfd;
 	int			optionv;
 	int			option_s;
+	int			option_trace;
 }				t_check;
 
 int				ft_check_format(int argc, char **argv, t_check *check);

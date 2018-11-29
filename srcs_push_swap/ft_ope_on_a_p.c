@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 11:07:48 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/29 15:45:28 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/29 17:00:10 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_swap_a_p(t_check *c)
 	tmp = c->stack_a[c->a - 1];
 	c->stack_a[c->a - 1] = c->stack_a[c->a];
 	c->stack_a[c->a] = tmp;
-	ft_printf("sa\n");
+	ft_dprintf(c->wfd, "sa\n");
 }
 
 void	ft_push_a_p(t_check *c)
@@ -34,7 +34,7 @@ void	ft_push_a_p(t_check *c)
 	c->nb_a++;
 	c->nb_b--;
 	c->b--;
-	ft_printf("pa\n");
+	ft_dprintf(c->wfd, "pa\n");
 }
 
 void	ft_rotate_a_p(t_check *c)
@@ -52,7 +52,7 @@ void	ft_rotate_a_p(t_check *c)
 		i--;
 	}
 	c->stack_a[0] = tmp;
-	ft_printf("ra\n");
+	ft_dprintf(c->wfd, "ra\n");
 }
 
 void	ft_reverse_rotate_a_p(t_check *c)
@@ -70,5 +70,5 @@ void	ft_reverse_rotate_a_p(t_check *c)
 		i++;
 	}
 	c->stack_a[c->a] = tmp;
-	ft_printf("rra\n");
+	ft_dprintf(c->wfd, "rra\n");
 }

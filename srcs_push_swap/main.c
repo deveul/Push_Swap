@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 14:23:06 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/29 15:44:14 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/29 17:14:06 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,9 @@ int			main(int argc, char **argv)
 		free(c.stack_a);
 		return (-1);
 	}
+	c.wfd = 1;
+	if (c.option_trace == 1)
+		c.wfd = open("trace_push_swap", O_CREAT | O_RDWR, 0777);
 	ft_init_stack(&c);
 	ft_init_swap(&c, &s);
 	ft_init_rev_swap(&c, &s);
