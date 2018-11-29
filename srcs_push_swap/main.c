@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 14:23:06 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/29 18:31:44 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/29 18:42:18 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ int			main(int argc, char **argv)
 	if (argc == 1)
 		return (-1);
 	c.nb = -1;
-	c.wfd = open("trace_push_swap", O_TRUNC, 0777);
+	c.wfd = open("trace_push_swap", O_CREAT | O_TRUNC, 0777);
 	close(c.wfd);
 	if (ft_check_format(argc, argv, &c) == -1)
 	{
