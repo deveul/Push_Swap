@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 14:23:06 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/28 15:51:59 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/29 12:41:28 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int			main(int argc, char **argv)
 	t_swap	s;
 
 	c.nb = -1;
-	if (ft_check_format(argc, argv, &c) == -1)
+	if (ft_check_format_b(argc, argv, &c) == -1)
 	{
 		ft_printf("Error\n");
 		return (-1);

@@ -6,7 +6,7 @@
 #    By: vrenaudi <urenaudi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/26 14:25:25 by vrenaudi          #+#    #+#              #
-#    Updated: 2018/11/28 16:43:42 by vrenaudi         ###   ########.fr        #
+#    Updated: 2018/11/29 12:23:06 by vrenaudi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ NAMEPS = push_swap
 
 SRCSC = ./srcs_common/ft_check_format.c \
 	   	./srcs_common/ft_check_format_str.c \
+	   	./srcs_common/ft_check_format_b.c \
   		./srcs_common/ft_ope_on_a.c \
   		./srcs_common/ft_ope_on_a_p.c \
 		./srcs_common/ft_ope_on_b.c \
@@ -36,6 +37,7 @@ SRCSPS = ./srcs_push_swap/main.c \
 		 ./srcs_push_swap/ft_where_in_b.c \
 		 ./srcs_push_swap/ft_do_and_print.c \
 		 ./srcs_push_swap/ft_calc_diff_best.c \
+		 ./srcs_push_swap/ft_a_is_sort.c \
 
 OBJC = $(SRCSC:.c=.o)
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_format_str.c                              :+:      :+:    :+:   */
+/*   ft_check_format.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/21 15:12:14 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/29 12:21:29 by vrenaudi         ###   ########.fr       */
+/*   Created: 2018/11/20 15:33:46 by vrenaudi          #+#    #+#             */
+/*   Updated: 2018/11/29 12:41:30 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,18 +49,40 @@ static int		ft_check_if_only_nb_space(char *str)
 	return (1);
 }
 
-int				ft_check_format_str(char *str, t_check *c)
+
+int				ft_check_format_b(int argc, char **argv, t_check *c)
 {
-	char	**tab;
 	int		i;
 	int		j;
-	long	tmp;
+	int		tmp;
+	char	*arg;
+	char	**tab;
 
+	i = 2;
+	c->nb = -1;
+	c->optionv = 0;
+	if (argc == 1)
+		return (-1);
+	else
+	{
+		arg = ft_strdup(argv[1]);
+		while (i < argc)
+		{
+			if (ft_strequ(argv[i], "-v"))
+				c->optionv = 1;
+			else
+			{
+				arg = ft_strjoinfree(arg, " ");
+				arg = ft_strjoinfree(arg, argv[i]);
+			}
+			i++;
+		}
+	}
+	if (ft_check_if_only_nb_space(arg) == -1)
+		return (-1);
+	if (!(tab = ft_strsplit(arg, ' ')))
+		return (-1);
 	i = 0;
-	if (ft_check_if_only_nb_space(str) == -1)
-		return (-1);
-	if (!(tab = ft_strsplit(str, ' ')))
-		return (-1);
 	while (tab[i])
 		i++;
 	c->nb = i;
