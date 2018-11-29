@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 15:33:46 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/29 16:41:44 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/29 18:29:15 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ static int		ft_stick_args(int argc, char **argv, t_check *c, char *arg)
 		else if (ft_strequ(argv[i], "-s3"))
 			c->option_s = 3;
 		else if (ft_strequ(argv[i], "-t"))
-			c->option_trace = 1;
+			c->optiont = 1;
 		else
 		{
 			if (!(arg = ft_strjoinfree(arg, " ")))
@@ -110,7 +110,7 @@ int				ft_check_format(int argc, char **argv, t_check *c)
 
 	c->optionv = 0;
 	c->option_s = 0;
-	c->option_trace = 0;
+	c->optiont = 0;
 	if (!(arg = ft_strdup(argv[1])))
 		exit(0);
 	if (ft_stick_args(argc, argv, c, arg) == -1)

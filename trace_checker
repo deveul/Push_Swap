@@ -1,0 +1,193 @@
+instruction played : (null)
+nb_a : 7		nb_b : 0
+stack a:		stack b:
+      10		
+      22		
+       7		
+      -8		
+      35		
+      98		
+    -103		
+nombre de coup joue : 0
+
+instruction played : pb
+nb_a : 6		nb_b : 1
+stack a:		stack b:
+        		
+      22		
+       7		
+      -8		
+      35		
+      98		
+    -103		      10
+nombre de coup joue : 1
+
+instruction played : pb
+nb_a : 5		nb_b : 2
+stack a:		stack b:
+        		
+        		
+       7		
+      -8		
+      35		
+      98		      22
+    -103		      10
+nombre de coup joue : 2
+
+instruction played : pb
+nb_a : 4		nb_b : 3
+stack a:		stack b:
+        		
+        		
+        		
+      -8		
+      35		       7
+      98		      22
+    -103		      10
+nombre de coup joue : 3
+
+instruction played : rb
+nb_a : 4		nb_b : 3
+stack a:		stack b:
+        		
+        		
+        		
+      -8		
+      35		      22
+      98		      10
+    -103		       7
+nombre de coup joue : 4
+
+instruction played : pb
+nb_a : 3		nb_b : 4
+stack a:		stack b:
+        		
+        		
+        		
+        		      -8
+      35		      22
+      98		      10
+    -103		       7
+nombre de coup joue : 5
+
+instruction played : rb
+nb_a : 3		nb_b : 4
+stack a:		stack b:
+        		
+        		
+        		
+        		      22
+      35		      10
+      98		       7
+    -103		      -8
+nombre de coup joue : 6
+
+instruction played : pb
+nb_a : 2		nb_b : 5
+stack a:		stack b:
+        		
+        		
+        		      35
+        		      22
+        		      10
+      98		       7
+    -103		      -8
+nombre de coup joue : 7
+
+instruction played : pb
+nb_a : 1		nb_b : 6
+stack a:		stack b:
+        		
+        		      98
+        		      35
+        		      22
+        		      10
+        		       7
+    -103		      -8
+nombre de coup joue : 8
+
+instruction played : pa
+nb_a : 2		nb_b : 5
+stack a:		stack b:
+        		
+        		
+        		      35
+        		      22
+        		      10
+      98		       7
+    -103		      -8
+nombre de coup joue : 9
+
+instruction played : pa
+nb_a : 3		nb_b : 4
+stack a:		stack b:
+        		
+        		
+        		
+        		      22
+      35		      10
+      98		       7
+    -103		      -8
+nombre de coup joue : 10
+
+instruction played : pa
+nb_a : 4		nb_b : 3
+stack a:		stack b:
+        		
+        		
+        		
+      22		
+      35		      10
+      98		       7
+    -103		      -8
+nombre de coup joue : 11
+
+instruction played : pa
+nb_a : 5		nb_b : 2
+stack a:		stack b:
+        		
+        		
+      10		
+      22		
+      35		
+      98		       7
+    -103		      -8
+nombre de coup joue : 12
+
+instruction played : pa
+nb_a : 6		nb_b : 1
+stack a:		stack b:
+        		
+       7		
+      10		
+      22		
+      35		
+      98		
+    -103		      -8
+nombre de coup joue : 13
+
+instruction played : pa
+nb_a : 7		nb_b : 0
+stack a:		stack b:
+      -8		
+       7		
+      10		
+      22		
+      35		
+      98		
+    -103		
+nombre de coup joue : 14
+
+instruction played : rra
+nb_a : 7		nb_b : 0
+stack a:		stack b:
+    -103		
+      -8		
+       7		
+      10		
+      22		
+      35		
+      98		
+nombre de coup joue : 15
+
+OK

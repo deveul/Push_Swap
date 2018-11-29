@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 14:23:06 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/29 17:23:11 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/29 18:37:44 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,13 @@ static int	ft_run(t_check *c)
 		ft_print_stack(c, line);
 		ft_strdel(&line);
 	}
+	ft_is_it_sort(c);
+	free(c->stack_a);
+	free(c->stack_b);
+	if (c->optiont == 1)
+		close(c->wfd);
+	if (c->rfd != 0)
+		close(c->rfd);
 	return (0);
 }
 
@@ -113,20 +120,10 @@ int			main(int argc, char **argv)
 		free(c.stack_a);
 		return (-1);
 	}
-	c.rfd = 0;
-	c.wfd = 1;
-	if (c.option_trace == 1)
-	{
-		if ((c.rfd = open("trace_push_swap", O_RDWR, 0777)) == -1)
-			c.rfd = 0;
-		c.wfd = open("trace_checker", O_CREAT | O_RDWR | O_TRUNC, 0777);
-	}
+	ft_option_trace(&c);
 	ft_init_checker(&c);
 	ft_print_stack(&c, NULL);
 	if (ft_run(&c) == -1)
 		return (-1);
-	ft_is_it_sort(&c);
-	free(c.stack_a);
-	free(c.stack_b);
 	return (0);
 }

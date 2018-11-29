@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 14:23:06 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/29 17:14:06 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/29 18:31:44 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,12 @@ static void	ft_solve_it(t_check *c, t_swap *s)
 		ft_sort_small(c, s);
 	else
 		ft_sort_big(c, s);
+	free(c->stack_a);
+	free(c->stack_b);
+	free(s->sort);
+	free(s->revsort);
+	if (c->optiont == 1)
+		close(c->wfd);
 }
 
 int			main(int argc, char **argv)
@@ -102,6 +108,8 @@ int			main(int argc, char **argv)
 	if (argc == 1)
 		return (-1);
 	c.nb = -1;
+	c.wfd = open("trace_push_swap", O_TRUNC, 0777);
+	close(c.wfd);
 	if (ft_check_format(argc, argv, &c) == -1)
 	{
 		ft_printf("Error\n");
@@ -112,16 +120,10 @@ int			main(int argc, char **argv)
 		free(c.stack_a);
 		return (-1);
 	}
-	c.wfd = 1;
-	if (c.option_trace == 1)
-		c.wfd = open("trace_push_swap", O_CREAT | O_RDWR, 0777);
+	c.wfd = c.optiont > 0 ? open("trace_push_swap", O_CREAT | O_RDWR, 0777) : 1;
 	ft_init_stack(&c);
 	ft_init_swap(&c, &s);
 	ft_init_rev_swap(&c, &s);
 	ft_solve_it(&c, &s);
-	free(c.stack_a);
-	free(c.stack_b);
-	free(s.sort);
-	free(s.revsort);
 	return (0);
 }

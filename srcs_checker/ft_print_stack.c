@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 15:10:56 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/29 16:54:54 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/29 18:37:42 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	ft_slower(t_check *c)
 	int		i;
 
 	i = 0;
-	if (c->option_s == 0)
+	if (c->option_s == 0 || c->optiont != 0)
 		return ;
 	else if (c->option_s == 1)
 	{
@@ -63,4 +63,24 @@ void		ft_print_stack(t_check *c, char *line)
 	}
 	ft_dprintf(c->wfd, "nombre de coup joue : %d\n\n", c->nb_played++);
 	ft_slower(c);
+}
+
+void		ft_option_trace(t_check *c)
+{
+	char	str[1];
+
+	c->rfd = 0;
+	c->wfd = 1;
+	if (c->optiont == 1)
+	{
+		c->rfd = open("trace_push_swap", O_RDWR, 0777);
+		if (read(c->rfd, str, 1) < 1)
+			c->rfd = 0;
+		else
+		{
+			close(c->rfd);
+			c->rfd = open("trace_push_swap", O_RDWR, 0777);
+		}
+		c->wfd = open("trace_checker", O_CREAT | O_RDWR | O_TRUNC, 0777);
+	}
 }
