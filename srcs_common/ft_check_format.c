@@ -6,12 +6,11 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 15:33:46 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/29 15:02:25 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/29 15:43:24 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../srcs_checker/checker.h"
-#include "../srcs_push_swap/push_swap.h"
+#include "checker.h"
 
 static int		ft_check_unicity(int argc, int *nbs)
 {

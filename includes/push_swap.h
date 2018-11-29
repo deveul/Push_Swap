@@ -6,16 +6,14 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 14:26:49 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/29 11:51:24 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/29 15:41:12 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../libft/printf/ft_printf.h"
-# include "../libft/libft/get_next_line.h"
-# include "../srcs_checker/checker.h"
+# include "checker.h"
 
 typedef struct	s_swap
 {
@@ -54,5 +52,16 @@ void			ft_calc_diff_best(t_cbv *cbv, int *value);
 void			ft_where_in_b(t_check *c, t_cbv *cbv, int i);
 void			ft_do_and_print(t_check *c, t_cbv *cbv);
 int				ft_a_is_sort(t_check *c, t_swap *s);
+void			ft_swap_a_p(t_check *c);
+void			ft_push_a_p(t_check *c);
+void			ft_rotate_a_p(t_check *c);
+void			ft_reverse_rotate_a_p(t_check *c);
+void			ft_swap_b_p(t_check *c);
+void			ft_push_b_p(t_check *c);
+void			ft_rotate_b_p(t_check *c);
+void			ft_reverse_rotate_b_p(t_check *c);
+void			ft_swap_both_p(t_check *c);
+void			ft_rotate_both_p(t_check *c);
+void			ft_reverse_rotate_both_p(t_check *c);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: vrenaudi <urenaudi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/26 14:25:25 by vrenaudi          #+#    #+#              #
-#    Updated: 2018/11/29 15:12:38 by vrenaudi         ###   ########.fr        #
+#    Updated: 2018/11/29 15:51:53 by vrenaudi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,11 +20,8 @@ NAMEPS = push_swap
 
 SRCSC = ./srcs_common/ft_check_format.c \
   		./srcs_common/ft_ope_on_a.c \
-  		./srcs_common/ft_ope_on_a_p.c \
 		./srcs_common/ft_ope_on_b.c \
-		./srcs_common/ft_ope_on_b_p.c \
 		./srcs_common/ft_ope_on_both.c \
-		./srcs_common/ft_ope_on_both_p.c
 
 SRCSCH = ./srcs_checker/main.c \
 		 ./srcs_checker/ft_print_stack.c
@@ -36,7 +33,10 @@ SRCSPS = ./srcs_push_swap/main.c \
 		 ./srcs_push_swap/ft_where_in_b.c \
 		 ./srcs_push_swap/ft_do_and_print.c \
 		 ./srcs_push_swap/ft_calc_diff_best.c \
-		 ./srcs_push_swap/ft_a_is_sort.c
+		 ./srcs_push_swap/ft_a_is_sort.c \
+		 ./srcs_push_swap/ft_ope_on_a_p.c \
+		 ./srcs_push_swap/ft_ope_on_b_p.c \
+		 ./srcs_push_swap/ft_ope_on_both_p.c
 
 OBJC = $(SRCSC:.c=.o)
 
@@ -44,7 +44,7 @@ OBJCH = $(SRCSCH:.c=.o)
 
 OBJPS = $(SRCSPS:.c=.o)
 
-HEAD = -I ./srcs_checker/. -I ./srcs_push_swap/.
+HEAD = -I ./includes 
 
 RM = rm -f
 
@@ -56,8 +56,8 @@ all: $(NAME)
 
 $(NAME) : $(OBJC) $(OBJCH) $(OBJPS)
 	Make -C ./libft
-	$(CC) -o $(NAME) $(OBJC) $(OBJCH) $(CFLAGS) ./libft/libftprintf.a
-	$(CC) -o $(NAMEPS) $(OBJC) $(OBJPS) $(CFLAGS) ./libft/libftprintf.a
+	$(CC) -o $(NAME) $(HEAD) $(OBJC) $(OBJCH) $(CFLAGS) ./libft/libftprintf.a
+	$(CC) -o $(NAMEPS) $(HEAD) $(OBJC) $(OBJPS) $(CFLAGS) ./libft/libftprintf.a
 
 .PHONY : clean
 clean:
