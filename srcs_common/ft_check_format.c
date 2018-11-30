@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 15:33:46 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/29 18:29:15 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/30 11:09:06 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,17 @@ static int		ft_check_unicity(int argc, int *nbs)
 	return (1);
 }
 
-static int		ft_check_if_only_nb_space(char *str)
+static int		ft_check_if_only_nb_space(char *arg)
 {
 	int		i;
 
 	i = 0;
-	while (str[i])
+	while (arg[i])
 	{
-		if (str[i] != '-' && !ft_isdigit(str[i]) && str[i] != ' ')
+		if ((arg[i] == '-' && !arg[i + 1])
+				|| (arg[i] == '-' && arg[i + 1] && !ft_isdigit(arg[i + 1])))
+			return (-1);
+		if (arg[i] != '-' && !ft_isdigit(arg[i]) && arg[i] != ' ')
 			return (-1);
 		i++;
 	}
@@ -74,35 +77,6 @@ static int		ft_fill_stacks(t_check *c, char **tab)
 	return (0);
 }
 
-static int		ft_stick_args(int argc, char **argv, t_check *c, char *arg)
-{
-	int		i;
-
-	i = 2;
-	while (i < argc)
-	{
-		if (ft_strequ(argv[i], "-v"))
-			c->optionv = 1;
-		else if (ft_strequ(argv[i], "-s1"))
-			c->option_s = 1;
-		else if (ft_strequ(argv[i], "-s2"))
-			c->option_s = 2;
-		else if (ft_strequ(argv[i], "-s3"))
-			c->option_s = 3;
-		else if (ft_strequ(argv[i], "-t"))
-			c->optiont = 1;
-		else
-		{
-			if (!(arg = ft_strjoinfree(arg, " ")))
-				return (ft_strdelret(&arg, -1));
-			if (!(arg = ft_strjoinfree(arg, argv[i])))
-				return (ft_strdelret(&arg, -1));
-		}
-		i++;
-	}
-	return (0);
-}
-
 int				ft_check_format(int argc, char **argv, t_check *c)
 {
 	char	*arg;
@@ -111,9 +85,7 @@ int				ft_check_format(int argc, char **argv, t_check *c)
 	c->optionv = 0;
 	c->option_s = 0;
 	c->optiont = 0;
-	if (!(arg = ft_strdup(argv[1])))
-		exit(0);
-	if (ft_stick_args(argc, argv, c, arg) == -1)
+	if (!(arg = ft_stick_args(argc, argv, c)))
 		return (-1);
 	if (ft_check_if_only_nb_space(arg) == -1)
 		return (ft_strdelret(&arg, -1));
@@ -125,7 +97,6 @@ int				ft_check_format(int argc, char **argv, t_check *c)
 	if (ft_check_unicity(c->nb, c->stack_a) == -1)
 	{
 		free(c->stack_a);
-		ft_del_tab(tab);
 		return (-1);
 	}
 	return (0);

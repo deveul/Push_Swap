@@ -6,7 +6,7 @@
 #    By: vrenaudi <urenaudi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/26 14:25:25 by vrenaudi          #+#    #+#              #
-#    Updated: 2018/11/29 15:51:53 by vrenaudi         ###   ########.fr        #
+#    Updated: 2018/11/30 10:51:00 by vrenaudi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCSC = ./srcs_common/ft_check_format.c \
   		./srcs_common/ft_ope_on_a.c \
 		./srcs_common/ft_ope_on_b.c \
 		./srcs_common/ft_ope_on_both.c \
+		./srcs_common/ft_stick_args.c \
 
 SRCSCH = ./srcs_checker/main.c \
 		 ./srcs_checker/ft_print_stack.c
