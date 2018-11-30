@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 14:23:06 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/30 10:58:46 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/30 11:15:03 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,8 @@ static void	ft_solve_it(t_check *c, t_swap *s)
 	{
 		free(c->stack_a);
 		free(c->stack_b);
+		free(s->sort);
+		free(s->revsort);
 		return ;
 	}
 	if (c->nb < 7)

@@ -6,7 +6,7 @@
 /*   By: vrenaudi <vrenaudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 14:23:06 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/29 18:37:44 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2018/11/30 11:19:08 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,9 @@ static int	ft_run(t_check *c)
 		if (ft_instruction(c, line) == -1)
 		{
 			ft_dprintf(c->wfd, "Error\n");
-			return (-1);
+			free(c->stack_a);
+			free(c->stack_b);
+			return (ft_strdelret(&line, -1));
 		}
 		ft_print_stack(c, line);
 		ft_strdel(&line);
