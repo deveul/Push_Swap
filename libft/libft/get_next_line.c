@@ -6,7 +6,7 @@
 /*   By: vrenaudi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/21 12:18:19 by vrenaudi          #+#    #+#             */
-/*   Updated: 2018/11/14 16:55:54 by vrenaudi         ###   ########.fr       */
+/*   Updated: 2019/03/08 18:24:59 by vrenaudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,10 @@ int			get_next_line(const int fd, char **line)
 			break ;
 	}
 	if ((ret < BUFF_SIZE && (!str || !ft_strlen(str))))
+	{
+		ft_strdel(&str);
 		return (0);
+	}
 	if (!(*line = ft_strndup(str, ft_strlenuntilc(str, '\n')))
 			|| !(str = ft_streraseuntilc(str, '\n')))
 		return (-1);
